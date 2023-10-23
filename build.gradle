@@ -1,0 +1,42 @@
+plugins {
+    id 'idea'  // Automatically downloads source jars but not Javadoc.
+    id 'groovy'
+    id 'org.springframework.boot' version "$springBootVersion"
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+    }
+}
+
+group 'com.playground'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = 17
+    targetCompatibility = 17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    runtimeOnly 'com.h2database:h2:2.2.222'
+
+    testImplementation 'org.apache.groovy:groovy:4.0.14'
+    testImplementation "org.spockframework:spock-core:$spockVersion"
+    testImplementation "org.spockframework:spock-spring:$spockVersion"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
