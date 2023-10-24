@@ -1,3 +1,10 @@
+create table if not exists entity (
+    id          int         GENERATED ALWAYS AS IDENTITY,
+    foo         text        not null,
+    bar         text        not null,
+    primary key (id)
+);
+
 create table if not exists entity1 (
     id          int         GENERATED ALWAYS AS IDENTITY,
     number_one  int         not null,

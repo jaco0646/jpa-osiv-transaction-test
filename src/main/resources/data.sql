@@ -1,3 +1,8 @@
+insert into entity (foo, bar) values
+    ('one', 'two'),
+    ('three', 'four')
+;
+
 insert into entity1 (number_one, number_two) values
     (1, 2),
     (3, 4),
