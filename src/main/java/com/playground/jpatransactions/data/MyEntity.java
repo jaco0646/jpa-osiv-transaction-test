@@ -16,5 +16,7 @@ public class MyEntity implements SuperInterfaceDTO {
     private int id;
 
     private String foo;
+
+    @Convert(converter = StringReverser.class)
     private String bar;
 }

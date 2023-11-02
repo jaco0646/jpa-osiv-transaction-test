@@ -21,12 +21,22 @@ class EntityRepositorySpec extends Specification {
             repo1.viewByID(1).getNumberOne()
     }
 
+    def "test JPA Query Projection - unrelated interface"() {
+        given:
+            def dto = repo.findJpaFieldsById(1)
+        expect:
+            dto.getClass() != MyEntity
+            dto.getFoo()
+            dto.getBar() == 'owt'
+    }
+
     def "test Native Query Projection - unrelated interface"() {
         given:
             def dto = repo.findUnrelatedInterfaceById(1)
         expect:
             dto.getClass() != MyEntity
             dto.getFoo()
+            dto.getBar() == 'two'
     }
 
     def "test Native Query Projection - super interface"() {
