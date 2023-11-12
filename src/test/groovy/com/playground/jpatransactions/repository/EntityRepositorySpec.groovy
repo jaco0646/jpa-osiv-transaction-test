@@ -69,4 +69,12 @@ class EntityRepositorySpec extends Specification {
         expect:
             dto.get('foo')
     }
+
+    def "test Tuple Collection"() {
+        given:
+            def foos = repo.findFoosByIDs([1, 2])
+        expect:
+            foos.get(1) == 'one'
+            foos.get(2) == 'three'
+    }
 }
