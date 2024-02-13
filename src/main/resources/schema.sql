@@ -19,3 +19,10 @@ create view if not exists entity1_view as
         number_two::text as number_two
     from entity1
 ;
+
+create table if not exists entity2 (
+    id  int         GENERATED ALWAYS AS IDENTITY,
+    b1  boolean     not null,
+    b2  boolean,
+    primary key (id)
+);
